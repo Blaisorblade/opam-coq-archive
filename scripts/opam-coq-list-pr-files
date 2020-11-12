@@ -1,9 +1,0 @@
-#!/bin/bash
-
-set -e
-#set -x
-
-(>&2 echo PR head is: $CI_COMMIT_SHA)
-BASE=`git merge-base $CI_COMMIT_SHA origin/master`
-(>&2 echo Merge base is: $BASE)
-git diff-tree --no-commit-id --name-only -r $BASE $CI_COMMIT_SHA
